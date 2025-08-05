@@ -78,31 +78,80 @@ python -m http.server 8000
 - ✅ **Sem instalação** necessária
 - ✅ **Offline:** Funciona sem internet após o primeiro carregamento
 
+## 📁 Estrutura do Projeto
+
+```
+flappy-bird-web/
+├── index.html              # Página principal (HTML semântico)
+├── src/
+│   ├── styles.css          # Estilos CSS organizados e comentados
+│   ├── config.js           # Configurações e constantes do jogo
+│   ├── Bird.js             # Classe do pássaro (física e movimento)
+│   ├── Pipe.js             # Classe dos canos (obstáculos individuais)
+│   ├── PipeGenerator.js    # Gerador e gerenciador de canos
+│   ├── GameManager.js      # Controlador principal do jogo
+│   ├── main.js             # Inicialização e ponto de entrada
+│   └── game.js             # [DEPRECATED] Versão monolítica anterior
+└── README.md               # Documentação completa
+```
+
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5** - Estrutura e semântica
-- **CSS3** - Estilização, animações e responsividade  
-- **JavaScript ES6** - Lógica do jogo, física e interações
+- **HTML5** - Estrutura semântica e acessível
+- **CSS3** - Estilização modular, animações e responsividade  
+- **JavaScript ES6** - Código orientado a objetos com classes
+- **Arquitetura modular** - Separação clara de responsabilidades
 - **Nenhuma dependência externa** - Código 100% nativo
 
 ## 🎨 Características Técnicas
 
-### 🎮 Game Engine
+### 🎮 Arquitetura do Código
+- **Módulos ES6** - Separação completa em arquivos individuais
+- **Classes especializadas** - `Bird`, `Pipe`, `PipeGenerator`, `GameManager`
+- **Configurações centralizadas** - `config.js` com todas as constantes
+- **Separação de responsabilidades** - Cada módulo tem uma função específica
+- **Sistema de imports/exports** - Dependências explícitas entre módulos
+- **Código documentado** - Comentários JSDoc em português
+- **Debug integrado** - Ferramentas de desenvolvimento inclusas
+
+### 🎯 Game Engine
 - **60 FPS** - Loop de jogo otimizado
 - **Física realista** - Gravidade, velocidade e colisões precisas
-- **Sistema modular** - Fácil de expandir e modificar
-
-### 🎯 Algoritmos
-- **Detecção de colisão** por bounding box
+- **Detecção de colisão** por bounding box otimizada
 - **Spawn procedural** de obstáculos
-- **Sistema de pontuação** e progressão
-- **Gerenciamento de estado** do jogo
+- **Sistema de pontuação** e progressão automática
+- **Gerenciamento de estado** robusto
 
-### 🎨 Visual
-- **Cores vibrantes** inspiradas no original
-- **Animações CSS** para transições suaves
-- **Efeitos de sombra** e profundidade
-- **Feedback visual** para interações
+### 🎨 Interface e UX
+- **Cores vibrantes** inspiradas no jogo original
+- **Animações CSS** suaves para transições
+- **Efeitos visuais** de feedback para interações
+- **Design responsivo** adaptável a diferentes telas
+- **Acessibilidade** com meta tags e estrutura semântica
+
+## 🔧 Comandos de Debug
+
+O jogo inclui ferramentas de debug acessíveis no console:
+
+```javascript
+// Estado atual do jogo
+window.debugGame.getState()
+
+// Pausar/despausar
+window.debugGame.togglePause()
+
+// Adicionar pontos
+window.debugGame.addScore(10)
+
+// Mudar nível diretamente
+window.debugGame.setLevel(5)
+
+// Forçar game over
+window.debugGame.forceGameOver()
+
+// Acessar o gerenciador principal
+window.gameManager
+```
 
 ## 🚀 Possíveis Melhorias Futuras
 
@@ -113,6 +162,8 @@ python -m http.server 8000
 - [ ] 📊 Estatísticas detalhadas de jogo
 - [ ] 🎮 Controles alternativos (touch gestures)
 - [ ] 💫 Power-ups e bonus especiais
+- [ ] 🌐 Service Worker para funcionalidade offline
+- [ ] 📱 Progressive Web App (PWA)
 
 ## 📄 Licença
 
